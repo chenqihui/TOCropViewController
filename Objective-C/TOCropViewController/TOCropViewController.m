@@ -28,7 +28,6 @@
 #import "TOCroppedImageAttributes.h"
 
 static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
-static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
 @interface TOCropViewController () <UIActionSheetDelegate, UIViewControllerTransitioningDelegate, TOCropViewDelegate>
 
@@ -119,21 +118,21 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     BOOL circularMode = (self.croppingStyle == TOCropViewCroppingStyleCircular);
 
     // Layout the views initially
-    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
-    self.toolbar.frame = [self frameForToolbarWithVerticalLayout:self.verticalLayout];
-
-    // Set up toolbar default behaviour
-    self.toolbar.clampButtonHidden = self.aspectRatioPickerButtonHidden || circularMode;
-    self.toolbar.rotateClockwiseButtonHidden = self.rotateClockwiseButtonHidden;
-    
-    // Set up the toolbar button actions
-    __weak typeof(self) weakSelf = self;
-    self.toolbar.doneButtonTapped   = ^{ [weakSelf doneButtonTapped]; };
-    self.toolbar.cancelButtonTapped = ^{ [weakSelf cancelButtonTapped]; };
-    self.toolbar.resetButtonTapped = ^{ [weakSelf resetCropViewLayout]; };
-    self.toolbar.clampButtonTapped = ^{ [weakSelf showAspectRatioDialog]; };
-    self.toolbar.rotateCounterclockwiseButtonTapped = ^{ [weakSelf rotateCropViewCounterclockwise]; };
-    self.toolbar.rotateClockwiseButtonTapped        = ^{ [weakSelf rotateCropViewClockwise]; };
+//    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
+//    self.toolbar.frame = [self frameForToolbarWithVerticalLayout:self.verticalLayout];
+//
+//    // Set up toolbar default behaviour
+//    self.toolbar.clampButtonHidden = self.aspectRatioPickerButtonHidden || circularMode;
+//    self.toolbar.rotateClockwiseButtonHidden = self.rotateClockwiseButtonHidden;
+//
+//    // Set up the toolbar button actions
+//    __weak typeof(self) weakSelf = self;
+//    self.toolbar.doneButtonTapped   = ^{ [weakSelf doneButtonTapped]; };
+//    self.toolbar.cancelButtonTapped = ^{ [weakSelf cancelButtonTapped]; };
+//    self.toolbar.resetButtonTapped = ^{ [weakSelf resetCropViewLayout]; };
+//    self.toolbar.clampButtonTapped = ^{ [weakSelf showAspectRatioDialog]; };
+//    self.toolbar.rotateCounterclockwiseButtonTapped = ^{ [weakSelf rotateCropViewCounterclockwise]; };
+//    self.toolbar.rotateClockwiseButtonTapped        = ^{ [weakSelf rotateCropViewClockwise]; };
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -1085,8 +1084,8 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 - (TOCropToolbar *)toolbar
 {
     if (!_toolbar) {
-        _toolbar = [[TOCropToolbar alloc] initWithFrame:CGRectZero];
-        [self.view addSubview:_toolbar];
+//        _toolbar = [[TOCropToolbar alloc] initWithFrame:CGRectZero];
+//        [self.view addSubview:_toolbar];
     }
     return _toolbar;
 }

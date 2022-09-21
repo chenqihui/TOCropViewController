@@ -18,8 +18,9 @@
 #define QHCropNamespace_h
 
 // TOCropViewController
-#define TOCropViewController QHBaseCropViewController
-#define TOCropViewControllerDelegate QHBaseCropViewControllerDelegate
+#define kTOCropViewControllerToolbarHeight kQHCropViewControllerToolbarHeight
+#define TOCropViewController QHCropViewController
+#define TOCropViewControllerDelegate QHCropViewControllerDelegate
 
 // CropRotate
 #define TOCropRotate QHCropRotate

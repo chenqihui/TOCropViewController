@@ -20,34 +20,6 @@
                ReferencedContainer = "container:TOCropViewControllerExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "223424821ABBC0CD00BBC2B1"
-               BuildableName = "TOCropViewControllerExampleTests.xctest"
-               BlueprintName = "TOCropViewControllerExampleTests"
-               ReferencedContainer = "container:TOCropViewControllerExample.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "220611961B2E6777001A467B"
-               BuildableName = "TOCropViewControllerTests.xctest"
-               BlueprintName = "TOCropViewControllerTests"
-               ReferencedContainer = "container:TOCropViewControllerExample.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -65,26 +37,6 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "223424821ABBC0CD00BBC2B1"
-               BuildableName = "TOCropViewControllerExampleTests.xctest"
-               BlueprintName = "TOCropViewControllerExampleTests"
-               ReferencedContainer = "container:TOCropViewControllerExample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "220611961B2E6777001A467B"
-               BuildableName = "TOCropViewControllerTests.xctest"
-               BlueprintName = "TOCropViewControllerTests"
-               ReferencedContainer = "container:TOCropViewControllerExample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

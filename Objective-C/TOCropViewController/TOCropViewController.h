@@ -26,6 +26,8 @@
 #import "TOCropView.h"
 #import "TOCropToolbar.h"
 
+static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
+
 @class TOCropViewController;
 
 ///------------------------------------------------
@@ -466,6 +468,13 @@
                                         toFrame:(CGRect)frame
                                           setup:(nullable void (^)(void))setup
                                      completion:(nullable void (^)(void))completion NS_SWIFT_NAME(dismissAnimatedFrom(_:croppedImage:toView:toFrame:setup:completion:));
+
+// chen public
+- (CGRect)frameForToolbarWithVerticalLayout:(BOOL)verticalLayout;
+- (CGRect)frameForCropViewWithVerticalLayout:(BOOL)verticalLayout;
+- (void)cancelButtonTapped;
+- (void)doneButtonTapped;
+- (void)setAspectRatioPreset:(TOCropViewControllerAspectRatioPreset)aspectRatioPreset animated:(BOOL)animated;
 
 @end
 

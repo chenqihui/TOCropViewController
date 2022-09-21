@@ -42,6 +42,28 @@
 		22DB4D9A1B234D07008B8466 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D931B234D07008B8466 /* TOCropToolbar.m */; };
 		22DB4D9B1B234D07008B8466 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D951B234D07008B8466 /* TOCropView.m */; };
 		22DB4D9E1B234D4F008B8466 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */; };
+		748FA02428DAC0D200442801 /* SVLImageCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 748FA02228DAC0D200442801 /* SVLImageCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		748FA02528DAC0D200442801 /* SVLImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA02328DAC0D200442801 /* SVLImageCropViewController.m */; };
+		748FA04B28DAC2BC00442801 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA04A28DAC2BC00442801 /* AppDelegate.m */; };
+		748FA05128DAC2BC00442801 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA05028DAC2BC00442801 /* ViewController.m */; };
+		748FA05428DAC2BC00442801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748FA05228DAC2BC00442801 /* Main.storyboard */; };
+		748FA05628DAC2BC00442801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748FA05528DAC2BC00442801 /* Assets.xcassets */; };
+		748FA05928DAC2BC00442801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748FA05728DAC2BC00442801 /* LaunchScreen.storyboard */; };
+		748FA05C28DAC2BC00442801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA05B28DAC2BC00442801 /* main.m */; };
+		748FA06028DAC4AC00442801 /* QHCropNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 748FA01928DAB2FE00442801 /* QHCropNamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		748FA06128DAC50500442801 /* SVLImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA02328DAC0D200442801 /* SVLImageCropViewController.m */; };
+		748FA06228DAC50500442801 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D831B234CFA008B8466 /* TOCropViewController.m */; };
+		748FA06328DAC50500442801 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 220C8EAA2106344D00A9B25D /* UIImage+CropRotate.m */; };
+		748FA06428DAC50500442801 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D8A1B234D07008B8466 /* TOCropViewControllerTransitioning.m */; };
+		748FA06528DAC50500442801 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */; };
+		748FA06628DAC50500442801 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BF961F1B2CD017009F4785 /* TOCroppedImageAttributes.m */; };
+		748FA06728DAC50500442801 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D8F1B234D07008B8466 /* TOCropOverlayView.m */; };
+		748FA06828DAC50500442801 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D911B234D07008B8466 /* TOCropScrollView.m */; };
+		748FA06928DAC50500442801 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D931B234D07008B8466 /* TOCropToolbar.m */; };
+		748FA06A28DAC50500442801 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D951B234D07008B8466 /* TOCropView.m */; };
+		748FA06D28DAC54200442801 /* SVLImageCropToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 748FA06B28DAC54200442801 /* SVLImageCropToolbar.h */; };
+		748FA06E28DAC54200442801 /* SVLImageCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA06C28DAC54200442801 /* SVLImageCropToolbar.m */; };
+		748FA06F28DAC5DD00442801 /* SVLImageCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA06C28DAC54200442801 /* SVLImageCropToolbar.m */; };
 		FE3E0E3A21098448004DAE93 /* TOCropViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 220C8E9F21062DD300A9B25D /* TOCropViewConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -127,8 +149,20 @@
 		6AE313511C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		72B9DCDC25763340006E160C /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		748FA01928DAB2FE00442801 /* QHCropNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHCropNamespace.h; sourceTree = "<group>"; };
-		748FA01A28DAB2FE00442801 /* QHCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHCropViewController.h; sourceTree = "<group>"; };
-		748FA01B28DAB2FE00442801 /* QHCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHCropViewController.m; sourceTree = "<group>"; };
+		748FA02228DAC0D200442801 /* SVLImageCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVLImageCropViewController.h; sourceTree = "<group>"; };
+		748FA02328DAC0D200442801 /* SVLImageCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVLImageCropViewController.m; sourceTree = "<group>"; };
+		748FA04728DAC2BC00442801 /* SVLImageCropViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVLImageCropViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		748FA04928DAC2BC00442801 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		748FA04A28DAC2BC00442801 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		748FA04F28DAC2BC00442801 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		748FA05028DAC2BC00442801 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		748FA05328DAC2BC00442801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		748FA05528DAC2BC00442801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		748FA05828DAC2BC00442801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		748FA05A28DAC2BC00442801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		748FA05B28DAC2BC00442801 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		748FA06B28DAC54200442801 /* SVLImageCropToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVLImageCropToolbar.h; sourceTree = "<group>"; };
+		748FA06C28DAC54200442801 /* SVLImageCropToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVLImageCropToolbar.m; sourceTree = "<group>"; };
 		88BBE90E22C206340073D22A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A93782CF214A55F900CAE7EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A93782D3214A81A200CAE7EE /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -149,6 +183,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		223424671ABBC0CD00BBC2B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748FA04428DAC2BC00442801 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -227,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				2238CF321FC0271C0081B957 /* Objective-C */,
+				748FA04828DAC2BC00442801 /* SVLImageCropViewControllerDemo */,
 				2234246B1ABBC0CD00BBC2B1 /* Products */,
 				2238CF581FC030C30081B957 /* Frameworks */,
 				22D83E77279D951200CF0D8E /* CHANGELOG.md */,
@@ -241,6 +283,7 @@
 			children = (
 				2234246A1ABBC0CD00BBC2B1 /* TOCropViewControllerExample.app */,
 				144B8CC91D22CAFF0085D774 /* TOCropViewController.framework */,
+				748FA04728DAC2BC00442801 /* SVLImageCropViewControllerDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,10 +377,36 @@
 			isa = PBXGroup;
 			children = (
 				748FA01928DAB2FE00442801 /* QHCropNamespace.h */,
-				748FA01A28DAB2FE00442801 /* QHCropViewController.h */,
-				748FA01B28DAB2FE00442801 /* QHCropViewController.m */,
+				748FA02128DAC07700442801 /* SVLImageCrop */,
 			);
 			path = QHCropViewController;
+			sourceTree = "<group>";
+		};
+		748FA02128DAC07700442801 /* SVLImageCrop */ = {
+			isa = PBXGroup;
+			children = (
+				748FA02228DAC0D200442801 /* SVLImageCropViewController.h */,
+				748FA02328DAC0D200442801 /* SVLImageCropViewController.m */,
+				748FA06B28DAC54200442801 /* SVLImageCropToolbar.h */,
+				748FA06C28DAC54200442801 /* SVLImageCropToolbar.m */,
+			);
+			path = SVLImageCrop;
+			sourceTree = "<group>";
+		};
+		748FA04828DAC2BC00442801 /* SVLImageCropViewControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				748FA04928DAC2BC00442801 /* AppDelegate.h */,
+				748FA04A28DAC2BC00442801 /* AppDelegate.m */,
+				748FA04F28DAC2BC00442801 /* ViewController.h */,
+				748FA05028DAC2BC00442801 /* ViewController.m */,
+				748FA05228DAC2BC00442801 /* Main.storyboard */,
+				748FA05528DAC2BC00442801 /* Assets.xcassets */,
+				748FA05728DAC2BC00442801 /* LaunchScreen.storyboard */,
+				748FA05A28DAC2BC00442801 /* Info.plist */,
+				748FA05B28DAC2BC00442801 /* main.m */,
+			);
+			path = SVLImageCropViewControllerDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,9 +416,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748FA06D28DAC54200442801 /* SVLImageCropToolbar.h in Headers */,
 				2238CF451FC02AE00081B957 /* TOCropViewController.h in Headers */,
 				144B8CD71D22CD650085D774 /* TOCropToolbar.h in Headers */,
 				220C8EB22106344D00A9B25D /* UIImage+CropRotate.h in Headers */,
+				748FA06028DAC4AC00442801 /* QHCropNamespace.h in Headers */,
+				748FA02428DAC0D200442801 /* SVLImageCropViewController.h in Headers */,
 				144B8CD81D22CD650085D774 /* TOCropView.h in Headers */,
 				144B8CD11D22CD650085D774 /* TOCropViewControllerTransitioning.h in Headers */,
 				144B8CD21D22CD650085D774 /* TOActivityCroppedImageProvider.h in Headers */,
@@ -399,6 +471,23 @@
 			productReference = 2234246A1ABBC0CD00BBC2B1 /* TOCropViewControllerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		748FA04628DAC2BC00442801 /* SVLImageCropViewControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 748FA05D28DAC2BC00442801 /* Build configuration list for PBXNativeTarget "SVLImageCropViewControllerDemo" */;
+			buildPhases = (
+				748FA04328DAC2BC00442801 /* Sources */,
+				748FA04428DAC2BC00442801 /* Frameworks */,
+				748FA04528DAC2BC00442801 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVLImageCropViewControllerDemo;
+			productName = SVLImageCropViewControllerDemo;
+			productReference = 748FA04728DAC2BC00442801 /* SVLImageCropViewControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -418,6 +507,11 @@
 					223424691ABBC0CD00BBC2B1 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 559F36FNHV;
+					};
+					748FA04628DAC2BC00442801 = {
+						CreatedOnToolsVersion = 14.0;
+						DevelopmentTeam = 559F36FNHV;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -464,6 +558,7 @@
 			targets = (
 				144B8CC81D22CAFF0085D774 /* TOCropViewController */,
 				223424691ABBC0CD00BBC2B1 /* TOCropViewControllerExample */,
+				748FA04628DAC2BC00442801 /* SVLImageCropViewControllerDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -488,6 +583,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		748FA04528DAC2BC00442801 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748FA05928DAC2BC00442801 /* LaunchScreen.storyboard in Resources */,
+				748FA05628DAC2BC00442801 /* Assets.xcassets in Resources */,
+				748FA05428DAC2BC00442801 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -496,11 +601,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				220C8EAD2106344D00A9B25D /* UIImage+CropRotate.m in Sources */,
+				748FA06E28DAC54200442801 /* SVLImageCropToolbar.m in Sources */,
 				144B8CDA1D22CD730085D774 /* TOCropViewControllerTransitioning.m in Sources */,
 				144B8CDB1D22CD730085D774 /* TOActivityCroppedImageProvider.m in Sources */,
 				144B8CDC1D22CD730085D774 /* TOCroppedImageAttributes.m in Sources */,
 				144B8CDE1D22CD730085D774 /* TOCropOverlayView.m in Sources */,
 				144B8CDF1D22CD730085D774 /* TOCropScrollView.m in Sources */,
+				748FA02528DAC0D200442801 /* SVLImageCropViewController.m in Sources */,
 				144B8CE01D22CD730085D774 /* TOCropToolbar.m in Sources */,
 				144B8CE11D22CD730085D774 /* TOCropView.m in Sources */,
 				144B8CE21D22CD730085D774 /* TOCropViewController.m in Sources */,
@@ -523,6 +630,27 @@
 				22DB4D961B234D07008B8466 /* TOCropViewControllerTransitioning.m in Sources */,
 				22DB4D991B234D07008B8466 /* TOCropScrollView.m in Sources */,
 				223DCEB61FBAA85D00F99209 /* TOCropViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748FA04328DAC2BC00442801 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748FA06F28DAC5DD00442801 /* SVLImageCropToolbar.m in Sources */,
+				748FA06128DAC50500442801 /* SVLImageCropViewController.m in Sources */,
+				748FA06228DAC50500442801 /* TOCropViewController.m in Sources */,
+				748FA06328DAC50500442801 /* UIImage+CropRotate.m in Sources */,
+				748FA06428DAC50500442801 /* TOCropViewControllerTransitioning.m in Sources */,
+				748FA06528DAC50500442801 /* TOActivityCroppedImageProvider.m in Sources */,
+				748FA06628DAC50500442801 /* TOCroppedImageAttributes.m in Sources */,
+				748FA06728DAC50500442801 /* TOCropOverlayView.m in Sources */,
+				748FA06828DAC50500442801 /* TOCropScrollView.m in Sources */,
+				748FA06928DAC50500442801 /* TOCropToolbar.m in Sources */,
+				748FA06A28DAC50500442801 /* TOCropView.m in Sources */,
+				748FA05128DAC2BC00442801 /* ViewController.m in Sources */,
+				748FA04B28DAC2BC00442801 /* AppDelegate.m in Sources */,
+				748FA05C28DAC2BC00442801 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +710,22 @@
 				01291601287B3F2000A177C5 /* uk */,
 			);
 			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		748FA05228DAC2BC00442801 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				748FA05328DAC2BC00442801 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		748FA05728DAC2BC00442801 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				748FA05828DAC2BC00442801 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -799,6 +943,73 @@
 			};
 			name = Release;
 		};
+		748FA05E28DAC2BC00442801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 559F36FNHV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SVLImageCropViewControllerDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.SVLImageCropViewControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		748FA05F28DAC2BC00442801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 559F36FNHV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SVLImageCropViewControllerDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.SVLImageCropViewControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -825,6 +1036,15 @@
 			buildConfigurations = (
 				2234248E1ABBC0CD00BBC2B1 /* Debug */,
 				2234248F1ABBC0CD00BBC2B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		748FA05D28DAC2BC00442801 /* Build configuration list for PBXNativeTarget "SVLImageCropViewControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				748FA05E28DAC2BC00442801 /* Debug */,
+				748FA05F28DAC2BC00442801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
