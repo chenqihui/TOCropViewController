@@ -42,6 +42,7 @@
 		22DB4D9A1B234D07008B8466 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D931B234D07008B8466 /* TOCropToolbar.m */; };
 		22DB4D9B1B234D07008B8466 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D951B234D07008B8466 /* TOCropView.m */; };
 		22DB4D9E1B234D4F008B8466 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */; };
+		45AEC063FD5EF7DCC7C503E8 /* Pods_SVLImageCropViewControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A955EF7849BCE7B2BB52C2 /* Pods_SVLImageCropViewControllerDemo.framework */; };
 		748FA02428DAC0D200442801 /* SVLImageCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 748FA02228DAC0D200442801 /* SVLImageCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		748FA02528DAC0D200442801 /* SVLImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA02328DAC0D200442801 /* SVLImageCropViewController.m */; };
 		748FA04B28DAC2BC00442801 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FA04A28DAC2BC00442801 /* AppDelegate.m */; };
@@ -85,8 +86,7 @@
 		144B8CC91D22CAFF0085D774 /* TOCropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOCropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		146EFFB51D243822006CE3A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E30F151B47A2660099A975 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		2206119A1B2E6777001A467B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2206119B1B2E6777001A467B /* TOCropViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTests.m; sourceTree = "<group>"; };
+		20A955EF7849BCE7B2BB52C2 /* Pods_SVLImageCropViewControllerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVLImageCropViewControllerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220C8E9F21062DD300A9B25D /* TOCropViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOCropViewConstants.h; sourceTree = "<group>"; };
 		220C8EA221062F6700A9B25D /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		220C8EA321062F7300A9B25D /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -105,9 +105,6 @@
 		223424781ABBC0CD00BBC2B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2234247A1ABBC0CD00BBC2B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2234247D1ABBC0CD00BBC2B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2236AB471F59590E005C5098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2236AB481F59590E005C5098 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		2236AB491F59590E005C5098 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		2238CF441FC02AE00081B957 /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
 		223DCEB71FBAA91300F99209 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		22BF961E1B2CD017009F4785 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
@@ -145,6 +142,7 @@
 		22F7331B259B71C400956847 /* TOCropViewControllerExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TOCropViewControllerExample.entitlements; sourceTree = "<group>"; };
 		22F7331C259B71C400956847 /* TOCropViewControllerExample-Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TOCropViewControllerExample-Extension.entitlements"; sourceTree = "<group>"; };
 		3AADDE231CA5C43400AE0129 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		3FC432359D667E77FD714772 /* Pods-SVLImageCropViewControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVLImageCropViewControllerDemo.debug.xcconfig"; path = "Target Support Files/Pods-SVLImageCropViewControllerDemo/Pods-SVLImageCropViewControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6AE313501C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6AE313511C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		72B9DCDC25763340006E160C /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -166,6 +164,7 @@
 		88BBE90E22C206340073D22A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A93782CF214A55F900CAE7EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A93782D3214A81A200CAE7EE /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		B45F8C74182F20F20D97A050 /* Pods-SVLImageCropViewControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVLImageCropViewControllerDemo.release.xcconfig"; path = "Target Support Files/Pods-SVLImageCropViewControllerDemo/Pods-SVLImageCropViewControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CDC8C5751C667B9100BB86A4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		CDC8C5771C667B9100BB86A4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E4C7D121221D7465003F381A /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -193,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45AEC063FD5EF7DCC7C503E8 /* Pods_SVLImageCropViewControllerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,23 +212,6 @@
 				220C8EA421062FE500A9B25D /* Supporting */,
 			);
 			path = TOCropViewController;
-			sourceTree = "<group>";
-		};
-		220611981B2E6777001A467B /* TOCropViewControllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				2206119B1B2E6777001A467B /* TOCropViewControllerTests.m */,
-				220611991B2E6777001A467B /* Supporting Files */,
-			);
-			path = TOCropViewControllerTests;
-			sourceTree = "<group>";
-		};
-		220611991B2E6777001A467B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2206119A1B2E6777001A467B /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		220C8EA021062E6D00A9B25D /* Resources */ = {
@@ -275,6 +258,7 @@
 				22D83E76279D951200CF0D8E /* README.md */,
 				22D83E74279D951200CF0D8E /* CropViewController.podspec */,
 				22D83E75279D951200CF0D8E /* TOCropViewController.podspec */,
+				698017CAF7DA3315CFA3C0F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,24 +298,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2236AB461F59590E005C5098 /* TOCropViewControllerExample-Extension */ = {
-			isa = PBXGroup;
-			children = (
-				2236AB471F59590E005C5098 /* Info.plist */,
-				2236AB481F59590E005C5098 /* ShareViewController.h */,
-				2236AB491F59590E005C5098 /* ShareViewController.m */,
-			);
-			path = "TOCropViewControllerExample-Extension";
-			sourceTree = "<group>";
-		};
 		2238CF321FC0271C0081B957 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
 				748FA01828DAB2D800442801 /* QHCropViewController */,
 				144B8CCA1D22CAFF0085D774 /* TOCropViewController */,
 				2234246C1ABBC0CD00BBC2B1 /* TOCropViewControllerExample */,
-				2236AB461F59590E005C5098 /* TOCropViewControllerExample-Extension */,
-				220611981B2E6777001A467B /* TOCropViewControllerTests */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -341,6 +313,7 @@
 			children = (
 				22154472235D95330005D91E /* CHANGELOG.md */,
 				22154473235D95330005D91E /* README.md */,
+				20A955EF7849BCE7B2BB52C2 /* Pods_SVLImageCropViewControllerDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -371,6 +344,15 @@
 				22DB4D951B234D07008B8466 /* TOCropView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		698017CAF7DA3315CFA3C0F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FC432359D667E77FD714772 /* Pods-SVLImageCropViewControllerDemo.debug.xcconfig */,
+				B45F8C74182F20F20D97A050 /* Pods-SVLImageCropViewControllerDemo.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		748FA01828DAB2D800442801 /* QHCropViewController */ = {
@@ -475,9 +457,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 748FA05D28DAC2BC00442801 /* Build configuration list for PBXNativeTarget "SVLImageCropViewControllerDemo" */;
 			buildPhases = (
+				2B1426A3096CCB297E29329D /* [CP] Check Pods Manifest.lock */,
 				748FA04328DAC2BC00442801 /* Sources */,
 				748FA04428DAC2BC00442801 /* Frameworks */,
 				748FA04528DAC2BC00442801 /* Resources */,
+				B55E06FDEA0DBAF8DE3291FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -594,6 +578,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B1426A3096CCB297E29329D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SVLImageCropViewControllerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B55E06FDEA0DBAF8DE3291FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SVLImageCropViewControllerDemo/Pods-SVLImageCropViewControllerDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SVLImageCropViewControllerDemo/Pods-SVLImageCropViewControllerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		144B8CC41D22CAFF0085D774 /* Sources */ = {
@@ -945,6 +972,7 @@
 		};
 		748FA05E28DAC2BC00442801 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FC432359D667E77FD714772 /* Pods-SVLImageCropViewControllerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -979,6 +1007,7 @@
 		};
 		748FA05F28DAC2BC00442801 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B45F8C74182F20F20D97A050 /* Pods-SVLImageCropViewControllerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

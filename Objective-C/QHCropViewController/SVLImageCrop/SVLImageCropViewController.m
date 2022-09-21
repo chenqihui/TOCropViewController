@@ -8,6 +8,7 @@
 
 #import "SVLImageCropViewController.h"
 
+#import "Masonry.h"
 #import "SVLImageCropToolbar.h"
 
 static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbarTopHeight + kSVLImageCropToolbarBottomHeight;
@@ -25,8 +26,9 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _imgToolbar = [[SVLImageCropToolbar alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:_imgToolbar];
+    SVLImageCropToolbar *imgToolbar = [[SVLImageCropToolbar alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:imgToolbar];
+    _imgToolbar = imgToolbar;
     
     __weak typeof(self) weakSelf = self;
     self.imgToolbar.cancelBtnTapped = ^{ [weakSelf cancelBtnTappedAction]; };
@@ -36,8 +38,18 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     };
     
     // Layout the views initially
-    self.cropView.frame = [self frameForCropViewWithVerticalLayout:YES];
-    self.imgToolbar.frame = [self frameForToolbarWithVerticalLayout:YES];
+    UIView *cropView = self.cropView;
+    CGRect frame = [self frameForCropViewWithVerticalLayout:YES];
+    [cropView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(cropView.superview);
+        make.height.mas_equalTo(frame.size.height);
+    }];
+    [imgToolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(cropView.mas_bottom);
+        make.left.right.equalTo(imgToolbar.superview);
+        make.height.mas_equalTo(kSVLImageViewControllerToolbarHeight);
+    }];
+    
     
 }
 
@@ -49,11 +61,6 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
         self.aspectRatioLockEnabled = YES;
         self.imgFirstTime = YES;
     }
-    
-    [UIView performWithoutAnimation:^{
-        self.imgToolbar.frame = [self frameForToolbarWithVerticalLayout:YES];
-        [self.imgToolbar setNeedsLayout];
-    }];
 }
 
 #pragma mark - Priavte

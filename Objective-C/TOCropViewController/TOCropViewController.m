@@ -436,7 +436,7 @@ static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
 {
     [super viewDidLayoutSubviews];
 
-    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
+//    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
     [self adjustCropViewInsets];
     [self.cropView moveCroppedContentToCenterAnimated:NO];
 

@@ -45,17 +45,19 @@
 - (void)didTapImageView
 {
     // When tapping the image view, restore the image to the previous cropping state
-    TOCropViewController *cropController = [[TOCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:self.image];
+    SVLImageCropViewController *cropController = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:self.image];
     cropController.delegate = self;
-    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
-    [cropController presentAnimatedFromParentViewController:self
-                                                  fromImage:self.imageView.image
-                                                   fromView:nil
-                                                  fromFrame:viewFrame
-                                                      angle:self.angle
-                                               toImageFrame:self.croppedFrame
-                                                      setup:^{ self.imageView.hidden = YES; }
-                                                 completion:nil];
+    // TODO: Masonry 与 presentAnimatedFromParentViewController，由于 self.cropView.angle 的惰性加载有异常，cropView.superview == nil 导致崩溃
+//    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
+//    [cropController presentAnimatedFromParentViewController:self
+//                                                  fromImage:self.imageView.image
+//                                                   fromView:nil
+//                                                  fromFrame:viewFrame
+//                                                      angle:self.angle
+//                                               toImageFrame:self.croppedFrame
+//                                                      setup:^{ self.imageView.hidden = YES; }
+//                                                 completion:nil];
+    [self presentViewController:cropController animated:YES completion:nil];
 }
 
 #pragma mark - Cropper Delegate -
@@ -76,6 +78,7 @@
 - (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController
 {
     self.imageView.image = image;
+    self.image = self.imageView.image;
     [self layoutImageView];
     
     self.navigationItem.rightBarButtonItem.enabled = YES;
