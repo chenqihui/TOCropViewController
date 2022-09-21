@@ -39,6 +39,8 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     
     // Layout the views initially
     UIView *cropView = self.cropView;
+    // Masonry 与 presentAnimatedFromParentViewController，由于 self.cropView.angle 的惰性加载有异常，cropView.superview == nil 导致崩溃，所以这里添加处理
+    [self.view addSubview:cropView];
     CGRect frame = [self frameForCropViewWithVerticalLayout:YES];
     [cropView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(cropView.superview);

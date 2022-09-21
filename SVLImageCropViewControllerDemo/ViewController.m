@@ -47,17 +47,15 @@
     // When tapping the image view, restore the image to the previous cropping state
     SVLImageCropViewController *cropController = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:self.image];
     cropController.delegate = self;
-    // TODO: Masonry 与 presentAnimatedFromParentViewController，由于 self.cropView.angle 的惰性加载有异常，cropView.superview == nil 导致崩溃
-//    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
-//    [cropController presentAnimatedFromParentViewController:self
-//                                                  fromImage:self.imageView.image
-//                                                   fromView:nil
-//                                                  fromFrame:viewFrame
-//                                                      angle:self.angle
-//                                               toImageFrame:self.croppedFrame
-//                                                      setup:^{ self.imageView.hidden = YES; }
-//                                                 completion:nil];
-    [self presentViewController:cropController animated:YES completion:nil];
+    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
+    [cropController presentAnimatedFromParentViewController:self
+                                                  fromImage:self.imageView.image
+                                                   fromView:nil
+                                                  fromFrame:viewFrame
+                                                      angle:self.angle
+                                               toImageFrame:self.croppedFrame
+                                                      setup:^{ self.imageView.hidden = YES; }
+                                                 completion:nil];
 }
 
 #pragma mark - Cropper Delegate -
