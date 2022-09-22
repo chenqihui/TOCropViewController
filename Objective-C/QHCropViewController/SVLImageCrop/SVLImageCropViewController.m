@@ -31,13 +31,19 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     
     SVLImageCropToolbar *imgToolbar = [[SVLImageCropToolbar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:imgToolbar];
-    _imgToolbar = imgToolbar;
     
     __weak typeof(self) weakSelf = self;
-    self.imgToolbar.cancelBtnTapped = ^{ [weakSelf cancelBtnTappedAction]; };
-    self.imgToolbar.doneBtnTapped   = ^{ [weakSelf doneBtnTappedAction]; };
-    self.imgToolbar.clampBtnTapped = ^(SVLImageCropViewControllerAspectRatioPreset preset) {
-        [weakSelf aspectRatioTappedAction:preset];
+    imgToolbar.cancelBtnTapped = ^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf cancelBtnTappedAction];
+    };
+    imgToolbar.doneBtnTapped   = ^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf doneBtnTappedAction];
+    };
+    imgToolbar.clampBtnTapped = ^(SVLImageCropViewControllerAspectRatioPreset preset) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf aspectRatioTappedAction:preset];
     };
     
     UIView *cropView = self.cropView;
@@ -52,6 +58,7 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     }];
     
     imgToolbar.currentPreset = SVLImageCropViewControllerAspectRatioPreset3x4;
+    _imgToolbar = imgToolbar;
     [self p_defaultAspectRatioPreset];
 }
 
