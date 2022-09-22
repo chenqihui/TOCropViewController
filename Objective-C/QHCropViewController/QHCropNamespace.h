@@ -7,11 +7,21 @@
 
 /*
  QHCropNamespace
+ 使用：
+ 参考：SVLImageCropViewControllerDemo -> ViewController
+ 记得 pod install
+ * [chenqihui/TOCropViewController at sohu](https://github.com/chenqihui/TOCropViewController/tree/sohu)
  
+ 基础：
  * [TimOliver/TOCropViewController: A view controller for iOS that allows users to crop portions of UIImage objects](https://github.com/TimOliver/TOCropViewController)
+ 
+ 说明：
  使用 TOCropViewController 第三方库
- 使用如下宏替换，最重要的是尊重开源作者，保留其前缀，又避免冲突，还可以最小化升级
- 当由于功能界面不同，会修改 TOCropViewController
+ 使用如下宏替换
+ 最重要的是尊重开源作者，保留其前缀，又避免冲突，还可以最小化升级，一举三得
+ 
+ 更新注意：
+ 当由于功能界面不同，会修改 TOCropViewController 等小部分内容
  */
 
 #ifndef QHCropNamespace_h
