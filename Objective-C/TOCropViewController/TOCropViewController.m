@@ -436,7 +436,7 @@ static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
 {
     [super viewDidLayoutSubviews];
 
-//    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
+    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
     [self adjustCropViewInsets];
     [self.cropView moveCroppedContentToCenterAnimated:NO];
 
@@ -1121,6 +1121,7 @@ static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
 
 - (void)setAspectRatioLockDimensionSwapEnabled:(BOOL)aspectRatioLockDimensionSwapEnabled
 {
+    _aspectRatioLockDimensionSwapEnabled = aspectRatioLockDimensionSwapEnabled;
     self.cropView.aspectRatioLockDimensionSwapEnabled = aspectRatioLockDimensionSwapEnabled;
 }
 
@@ -1230,7 +1231,8 @@ static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
     return YES;
 #endif
 
-    return CGRectGetWidth(self.view.bounds) < CGRectGetHeight(self.view.bounds);
+//    return CGRectGetWidth(self.view.bounds) < CGRectGetHeight(self.view.bounds);
+    return YES;
 }
 
 - (BOOL)overrideStatusBar

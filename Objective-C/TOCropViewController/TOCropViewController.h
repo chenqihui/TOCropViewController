@@ -474,7 +474,6 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 - (CGRect)frameForCropViewWithVerticalLayout:(BOOL)verticalLayout;
 - (void)cancelButtonTapped;
 - (void)doneButtonTapped;
-- (void)setAspectRatioPreset:(TOCropViewControllerAspectRatioPreset)aspectRatioPreset animated:(BOOL)animated;
 
 @end
 

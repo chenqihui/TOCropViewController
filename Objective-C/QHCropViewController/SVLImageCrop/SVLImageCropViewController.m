@@ -8,7 +8,8 @@
 
 #import "SVLImageCropViewController.h"
 
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
+
 #import "SVLImageCropToolbar.h"
 
 static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbarTopHeight + kSVLImageCropToolbarBottomHeight;
@@ -24,7 +25,9 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.aspectRatioLockEnabled = YES;
+    self.view.backgroundColor = [UIColor blackColor];
     
     SVLImageCropToolbar *imgToolbar = [[SVLImageCropToolbar alloc] initWithFrame:CGRectZero];
     [self.view addSubview:imgToolbar];
@@ -33,36 +36,23 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     __weak typeof(self) weakSelf = self;
     self.imgToolbar.cancelBtnTapped = ^{ [weakSelf cancelBtnTappedAction]; };
     self.imgToolbar.doneBtnTapped   = ^{ [weakSelf doneBtnTappedAction]; };
-    self.imgToolbar.clampBtnTapped = ^(QHCropViewControllerAspectRatioPreset aspectRatioPreset) {
-        [weakSelf aspectRatioTappedAction:aspectRatioPreset];
+    self.imgToolbar.clampBtnTapped = ^(SVLImageCropViewControllerAspectRatioPreset preset) {
+        [weakSelf aspectRatioTappedAction:preset];
     };
     
-    // Layout the views initially
     UIView *cropView = self.cropView;
     // Masonry 与 presentAnimatedFromParentViewController，由于 self.cropView.angle 的惰性加载有异常，cropView.superview == nil 导致崩溃，所以这里添加处理
-    [self.view addSubview:cropView];
+    if (cropView.superview == nil) { [self.view addSubview:cropView]; }
     CGRect frame = [self frameForCropViewWithVerticalLayout:YES];
-    [cropView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(cropView.superview);
-        make.height.mas_equalTo(frame.size.height);
-    }];
+    cropView.frame = frame;
     [imgToolbar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(cropView.mas_bottom);
         make.left.right.equalTo(imgToolbar.superview);
         make.height.mas_equalTo(kSVLImageViewControllerToolbarHeight);
     }];
     
-    
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-    if (self.imgFirstTime == NO) {
-        [self setAspectRatioPreset:TOCropViewControllerAspectRatioPreset4x3 animated:NO];
-        self.aspectRatioLockEnabled = YES;
-        self.imgFirstTime = YES;
-    }
+    imgToolbar.currentPreset = SVLImageCropViewControllerAspectRatioPreset3x4;
+    [self p_defaultAspectRatioPreset];
 }
 
 #pragma mark - Priavte
@@ -71,7 +61,7 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     CGRect frame = [super frameForToolbarWithVerticalLayout:verticalLayout];
     CGFloat diffHieght = kSVLImageViewControllerToolbarHeight - kQHCropViewControllerToolbarHeight;
     frame.origin.y -= diffHieght;
-    frame.size.height += diffHieght;
+    frame.size.height = kSVLImageViewControllerToolbarHeight;
     return frame;
 }
 
@@ -80,6 +70,10 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     CGFloat diffHieght = kSVLImageViewControllerToolbarHeight - kQHCropViewControllerToolbarHeight;
     frame.size.height -= diffHieght;
     return frame;
+}
+
+- (void)p_defaultAspectRatioPreset {
+    self.customAspectRatio = CGSizeMake(3, 4);
 }
 
 #pragma mark - Action
@@ -92,8 +86,14 @@ static const CGFloat kSVLImageViewControllerToolbarHeight = kSVLImageCropToolbar
     [self doneButtonTapped];
 }
 
-- (void)aspectRatioTappedAction:(TOCropViewControllerAspectRatioPreset)aspectRatioPreset {
-    [self setAspectRatioPreset:aspectRatioPreset animated:YES];
+- (void)aspectRatioTappedAction:(SVLImageCropViewControllerAspectRatioPreset)preset {
+    [self.cropView resetLayoutToDefaultAnimated:YES];
+    if (preset == SVLImageCropViewControllerAspectRatioPreset16x9) {
+        [self setAspectRatioPreset:QHCropViewControllerAspectRatioPreset16x9 animated:YES];
+    }
+    else {
+        [self p_defaultAspectRatioPreset];
+    }
 }
 
 @end

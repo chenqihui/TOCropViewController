@@ -13,13 +13,21 @@
 static const CGFloat kSVLImageCropToolbarTopHeight = 85.5f;
 static const CGFloat kSVLImageCropToolbarBottomHeight = 50.5f;
 
+typedef enum : NSUInteger {
+    SVLImageCropViewControllerAspectRatioPresetNone,
+    SVLImageCropViewControllerAspectRatioPreset3x4,
+    SVLImageCropViewControllerAspectRatioPreset16x9,
+} SVLImageCropViewControllerAspectRatioPreset;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SVLImageCropToolbar : UIView
 
+@property (nonatomic) SVLImageCropViewControllerAspectRatioPreset currentPreset;
+
 @property (nullable, nonatomic, copy) void (^cancelBtnTapped)(void);
 @property (nullable, nonatomic, copy) void (^doneBtnTapped)(void);
-@property (nullable, nonatomic, copy) void (^clampBtnTapped)(TOCropViewControllerAspectRatioPreset aspectRatioPreset);
+@property (nullable, nonatomic, copy) void (^clampBtnTapped)(SVLImageCropViewControllerAspectRatioPreset aspectRatioPreset);
 
 @end
 

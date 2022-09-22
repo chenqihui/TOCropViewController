@@ -7,137 +7,84 @@
 //
 
 #import "ViewController.h"
+
+#import <Masonry/Masonry.h>
+
 #import "SVLImageCropViewController.h"
 
-@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate>
+@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, QHCropViewControllerDelegate>
 
 @property (nonatomic, strong) UIImage *image;           // The image we'll be cropping
 @property (nonatomic, strong) UIImageView *imageView;   // The image view to present the cropped image
 
-@property (nonatomic, assign) TOCropViewCroppingStyle croppingStyle; //The cropping style
-@property (nonatomic, assign) CGRect croppedFrame;
-@property (nonatomic, assign) NSInteger angle;
+@property (nonatomic, assign) QHCropViewCroppingStyle croppingStyle;
 
 @end
 
 @implementation ViewController
 
-#pragma mark - Image Picker Delegate -
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    SVLImageCropViewController *cropController = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:image];
-    cropController.delegate = self;
-
-    self.image = image;
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    [picker dismissViewControllerAnimated:YES completion:^{
-        [self presentViewController:cropController animated:YES completion:nil];
+    UIImageView *iv = [[UIImageView alloc] init];
+    iv.image = [UIImage imageNamed:@"V"];
+    iv.userInteractionEnabled = YES;
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:iv];
+    self.imageView = iv;
+    [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(iv.superview);
+        make.left.equalTo(iv.superview).mas_offset(30);
+        make.width.mas_equalTo(0);
+        make.height.mas_equalTo(0);
+    }];
+    [self p_layoutImageView];
+    
+    if (@available(iOS 11.0, *)) {
+        self.imageView.accessibilityIgnoresInvertColors = YES;
+    }
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImageAction)];
+    [self.imageView addGestureRecognizer:tapRecognizer];
+    
+    UILabel *titleL = [UILabel new];
+    titleL.font = [UIFont systemFontOfSize:25];
+    titleL.textColor = [UIColor blackColor];
+    titleL.text = @"此处是标题";
+    titleL.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:titleL];
+    [titleL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(iv);
+        make.left.equalTo(iv.mas_right).mas_offset(20);
+        make.right.equalTo(iv.superview).mas_offset(-30);
+        make.height.equalTo(iv);
     }];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
+#pragma mark - Private
 
-#pragma mark - Gesture Recognizer -
-- (void)didTapImageView
-{
-    // When tapping the image view, restore the image to the previous cropping state
-    SVLImageCropViewController *cropController = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:self.image];
-    cropController.delegate = self;
-    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
-    [cropController presentAnimatedFromParentViewController:self
-                                                  fromImage:self.imageView.image
-                                                   fromView:nil
-                                                  fromFrame:viewFrame
-                                                      angle:self.angle
-                                               toImageFrame:self.croppedFrame
-                                                      setup:^{ self.imageView.hidden = YES; }
-                                                 completion:nil];
-}
-
-#pragma mark - Cropper Delegate -
-- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
-{
-    self.croppedFrame = cropRect;
-    self.angle = angle;
-    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
-}
-
-- (void)cropViewController:(TOCropViewController *)cropViewController didCropToCircularImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
-{
-    self.croppedFrame = cropRect;
-    self.angle = angle;
-    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
-}
-
-- (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController
-{
-    self.imageView.image = image;
-    self.image = self.imageView.image;
-    [self layoutImageView];
-    
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    
-    if (cropViewController.croppingStyle != TOCropViewCroppingStyleCircular) {
-        self.imageView.hidden = YES;
-        [cropViewController dismissAnimatedFromParentViewController:self
-                                                   withCroppedImage:image
-                                                             toView:self.imageView
-                                                            toFrame:CGRectZero
-                                                              setup:^{ [self layoutImageView]; }
-                                                         completion:
-         ^{
-            self.imageView.hidden = NO;
-        }];
-    }
-    else {
-        self.imageView.hidden = NO;
-        [cropViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-#pragma mark - Image Layout -
-- (void)layoutImageView
-{
+- (void)p_layoutImageView {
     if (self.imageView.image == nil)
         return;
     
-    CGFloat padding = 20.0f;
-    
-    CGRect viewFrame = self.view.bounds;
-    viewFrame.size.width -= (padding * 2.0f);
-    viewFrame.size.height -= ((padding * 2.0f));
-    
-    CGRect imageFrame = CGRectZero;
-    imageFrame.size = self.imageView.image.size;
-    
-    if (self.imageView.image.size.width > viewFrame.size.width ||
-        self.imageView.image.size.height > viewFrame.size.height)
-    {
-        CGFloat scale = MIN(viewFrame.size.width / imageFrame.size.width, viewFrame.size.height / imageFrame.size.height);
-        imageFrame.size.width *= scale;
-        imageFrame.size.height *= scale;
-        imageFrame.origin.x = (CGRectGetWidth(self.view.bounds) - imageFrame.size.width) * 0.5f;
-        imageFrame.origin.y = (CGRectGetHeight(self.view.bounds) - imageFrame.size.height) * 0.5f;
-        self.imageView.frame = imageFrame;
+    CGFloat w = 60;
+    CGFloat h = 80;
+    if (self.imageView.image.size.width > self.imageView.image.size.height) {
+        w = 90;
+        h = 51;
     }
-    else {
-        self.imageView.frame = imageFrame;
-        self.imageView.center = (CGPoint){CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds)};
-    }
+    [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(w);
+        make.height.mas_equalTo(h);
+    }];
 }
 
-#pragma mark - Bar Button Items -
-- (void)showCropViewController
-{
+- (void)p_showCropViewController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Crop Image", @"")
                                              style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action) {
-                                               self.croppingStyle = TOCropViewCroppingStyleDefault;
+                                               self.croppingStyle = QHCropViewCroppingStyleDefault;
                                                
                                                UIImagePickerController *standardPicker = [[UIImagePickerController alloc] init];
                                                standardPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -149,7 +96,7 @@
     UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", @"")
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
-        self.croppingStyle = TOCropViewCroppingStyleDefault;
+        self.croppingStyle = QHCropViewCroppingStyleDefault;
         
         UIImagePickerController *cameraPicker = [[UIImagePickerController alloc] init];
         cameraPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -167,52 +114,63 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)sharePhoto:(id)sender
-{
-    if (self.imageView.image == nil)
-        return;
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    SVLImageCropViewController *vc = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:image];
+    vc.delegate = self;
+
+    self.image = image;
     
-    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[self.imageView.image] applicationActivities:nil];
-    activityController.modalPresentationStyle = UIModalPresentationPopover;
-    activityController.popoverPresentationController.barButtonItem = sender;
-    [self presentViewController:activityController animated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 
-- (void)dismissViewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - View Creation/Lifecycle -
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.title = NSLocalizedString(@"TOCropViewController", @"");
+#pragma mark - QHCropViewControllerDelegate
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToCircularImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
+}
+
+- (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController {
+    self.imageView.image = image;
+    self.image = self.imageView.image;
+    [self p_layoutImageView];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showCropViewController)];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     
-#if TARGET_APP_EXTENSION
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissViewController)];
-#else
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharePhoto:)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-#endif
-    
-    self.imageView = [[UIImageView alloc] init];
-    self.imageView.userInteractionEnabled = YES;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:self.imageView];
-    
-    if (@available(iOS 11.0, *)) {
-        self.imageView.accessibilityIgnoresInvertColors = YES;
+    if (cropViewController.croppingStyle != TOCropViewCroppingStyleCircular) {
+        self.imageView.hidden = YES;
+        [cropViewController dismissAnimatedFromParentViewController:self
+                                                   withCroppedImage:image
+                                                             toView:self.imageView
+                                                            toFrame:CGRectZero
+                                                              setup:^{ [self p_layoutImageView]; }
+                                                         completion:
+         ^{
+            self.imageView.hidden = NO;
+        }];
     }
-    
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImageView)];
-    [self.imageView addGestureRecognizer:tapRecognizer];
+    else {
+        self.imageView.hidden = NO;
+        [cropViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    [self layoutImageView];
+#pragma mark - Action
+
+- (void)didTapImageAction {
+    [self p_showCropViewController];
 }
 
 @end
