@@ -14,10 +14,8 @@
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, QHCropViewControllerDelegate>
 
-@property (nonatomic, strong) UIImage *image;           // The image we'll be cropping
-@property (nonatomic, strong) UIImageView *imageView;   // The image view to present the cropped image
-
-@property (nonatomic, assign) QHCropViewCroppingStyle croppingStyle;
+@property (nonatomic, strong) UIImage *cropImage;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -30,6 +28,8 @@
     iv.image = [UIImage imageNamed:@"V"];
     iv.userInteractionEnabled = YES;
     iv.contentMode = UIViewContentModeScaleAspectFit;
+    iv.layer.cornerRadius = 10;
+    iv.layer.masksToBounds = YES;
     [self.view addSubview:iv];
     self.imageView = iv;
     [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,23 +81,19 @@
 
 - (void)p_showCropViewController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Crop Image", @"")
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"相册"
                                              style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action) {
-                                               self.croppingStyle = QHCropViewCroppingStyleDefault;
-                                               
-                                               UIImagePickerController *standardPicker = [[UIImagePickerController alloc] init];
-                                               standardPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                                               standardPicker.allowsEditing = NO;
-                                               standardPicker.delegate = self;
-                                               [self presentViewController:standardPicker animated:YES completion:nil];
+        UIImagePickerController *standardPicker = [[UIImagePickerController alloc] init];
+        standardPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        standardPicker.allowsEditing = NO;
+        standardPicker.delegate = self;
+        [self presentViewController:standardPicker animated:YES completion:nil];
                                            }];
     
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", @"")
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"相机"
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
-        self.croppingStyle = QHCropViewCroppingStyleDefault;
-        
         UIImagePickerController *cameraPicker = [[UIImagePickerController alloc] init];
         cameraPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         cameraPicker.allowsEditing = NO;
@@ -114,14 +110,23 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)p_updateImageViewWithImage:(UIImage *)image fromCropViewController:(QHCropViewController *)cropViewController {
+    self.imageView.image = image;
+    self.cropImage = image;
+    [self p_layoutImageView];
+    
+    self.imageView.hidden = NO;
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    SVLImageCropViewController *vc = [[SVLImageCropViewController alloc] initWithCroppingStyle:self.croppingStyle image:image];
+    SVLImageCropViewController *vc = [[SVLImageCropViewController alloc] initWithCroppingStyle:QHCropViewCroppingStyleDefault image:image];
     vc.delegate = self;
 
-    self.image = image;
+    self.cropImage = image;
     
     [picker dismissViewControllerAnimated:YES completion:^{
         [self presentViewController:vc animated:YES completion:nil];
@@ -134,37 +139,8 @@
 
 #pragma mark - QHCropViewControllerDelegate
 
-- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
-    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
-}
-
-- (void)cropViewController:(TOCropViewController *)cropViewController didCropToCircularImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
-    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
-}
-
-- (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController {
-    self.imageView.image = image;
-    self.image = self.imageView.image;
-    [self p_layoutImageView];
-    
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    
-    if (cropViewController.croppingStyle != TOCropViewCroppingStyleCircular) {
-        self.imageView.hidden = YES;
-        [cropViewController dismissAnimatedFromParentViewController:self
-                                                   withCroppedImage:image
-                                                             toView:self.imageView
-                                                            toFrame:CGRectZero
-                                                              setup:^{ [self p_layoutImageView]; }
-                                                         completion:
-         ^{
-            self.imageView.hidden = NO;
-        }];
-    }
-    else {
-        self.imageView.hidden = NO;
-        [cropViewController dismissViewControllerAnimated:YES completion:nil];
-    }
+- (void)cropViewController:(QHCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    [self p_updateImageViewWithImage:image fromCropViewController:cropViewController];
 }
 
 #pragma mark - Action

@@ -115,7 +115,7 @@ static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
     self.transitioningDelegate = self;
     self.view.backgroundColor = self.cropView.backgroundColor;
     
-    BOOL circularMode = (self.croppingStyle == TOCropViewCroppingStyleCircular);
+//    BOOL circularMode = (self.croppingStyle == TOCropViewCroppingStyleCircular);
 
     // Layout the views initially
 //    self.cropView.frame = [self frameForCropViewWithVerticalLayout:self.verticalLayout];
