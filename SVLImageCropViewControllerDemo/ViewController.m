@@ -123,10 +123,10 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.cropImage = image;
+    
     SVLImageCropViewController *vc = [[SVLImageCropViewController alloc] initWithCroppingStyle:QHCropViewCroppingStyleDefault image:image];
     vc.delegate = self;
-
-    self.cropImage = image;
     
     [picker dismissViewControllerAnimated:YES completion:^{
         [self presentViewController:vc animated:YES completion:nil];
