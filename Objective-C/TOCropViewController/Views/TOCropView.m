@@ -1082,6 +1082,30 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
         frame.size.height = ceilf(cropBoxFrame.size.height * scale);
     }
     frame.size.height = MIN(imageSize.height, frame.size.height);
+    
+    NSUInteger r = (frame.size.width / self.aspectRatio.width);
+    NSUInteger w = frame.size.width;
+    NSUInteger aw = self.aspectRatio.width;
+    // 减枝
+    w -= w % aw;
+    // 换算
+    NSUInteger h = r * self.aspectRatio.height;
+    // 赋值
+    if (imageSize.height >= h) {
+        frame.size.width = w;
+        frame.size.height = h;
+    }
+    else {
+        r = (frame.size.height / self.aspectRatio.height);
+        NSUInteger h = frame.size.height;
+        NSUInteger ah = self.aspectRatio.height;
+        h -= h % ah;
+        NSUInteger w = r * self.aspectRatio.width;
+        if (imageSize.width >= w) {
+            frame.size.width = w;
+            frame.size.height = h;
+        }
+    }
 
     return frame;
 }
