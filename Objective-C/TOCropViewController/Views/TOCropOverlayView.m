@@ -164,11 +164,11 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     
     if (animated == NO) {
         for (UIView *lineView in self.horizontalGridLines) {
-            lineView.alpha = hidden ? 0.0f : 1.0f;
+            lineView.alpha = hidden ? 0.0f : 0.6f;
         }
         
         for (UIView *lineView in self.verticalGridLines) {
-            lineView.alpha = hidden ? 0.0f : 1.0f;
+            lineView.alpha = hidden ? 0.0f : 0.6f;
         }
     
         return;
@@ -176,10 +176,10 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     
     [UIView animateWithDuration:hidden?0.35f:0.2f animations:^{
         for (UIView *lineView in self.horizontalGridLines)
-            lineView.alpha = hidden ? 0.0f : 1.0f;
+            lineView.alpha = hidden ? 0.0f : 0.6f;
         
         for (UIView *lineView in self.verticalGridLines)
-            lineView.alpha = hidden ? 0.0f : 1.0f;
+            lineView.alpha = hidden ? 0.0f : 0.6f;
     }];
 }
 
@@ -193,7 +193,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     }];
     
     if (_displayHorizontalGridLines) {
-        self.horizontalGridLines = @[[self createNewLineView], [self createNewLineView]];
+        self.horizontalGridLines = @[[self createNewLineView4GridLines], [self createNewLineView4GridLines]];
     } else {
         self.horizontalGridLines = @[];
     }
@@ -208,7 +208,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     }];
     
     if (_displayVerticalGridLines) {
-        self.verticalGridLines = @[[self createNewLineView], [self createNewLineView]];
+        self.verticalGridLines = @[[self createNewLineView4GridLines], [self createNewLineView4GridLines]];
     } else {
         self.verticalGridLines = @[];
     }
@@ -225,6 +225,13 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 - (nonnull UIView *)createNewLineView {
     UIView *newLine = [[UIView alloc] initWithFrame:CGRectZero];
     newLine.backgroundColor = [UIColor whiteColor];
+    [self addSubview:newLine];
+    return newLine;
+}
+
+- (nonnull UIView *)createNewLineView4GridLines {
+    UIView *newLine = [[UIView alloc] initWithFrame:CGRectZero];
+    newLine.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
     [self addSubview:newLine];
     return newLine;
 }
