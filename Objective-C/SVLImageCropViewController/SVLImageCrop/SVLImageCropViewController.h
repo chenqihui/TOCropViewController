@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TOCropViewController.h"
+#import "QHCropViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

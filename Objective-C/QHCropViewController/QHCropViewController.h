@@ -22,9 +22,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TOCropViewConstants.h"
-#import "TOCropView.h"
-#import "TOCropToolbar.h"
+#import "QHCropViewConstants.h"
+#import "QHCropView.h"
+#import "QHCropToolbar.h"
 
 static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 

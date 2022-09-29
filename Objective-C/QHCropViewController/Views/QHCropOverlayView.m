@@ -20,7 +20,7 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOCropOverlayView.h"
+#import "QHCropOverlayView.h"
 
 static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 

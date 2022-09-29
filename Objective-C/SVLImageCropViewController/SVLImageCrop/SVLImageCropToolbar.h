@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TOCropViewConstants.h"
+#import "QHCropViewConstants.h"
 
 static const CGFloat kSVLImageCropToolbarTopHeight = 85.5f;
 static const CGFloat kSVLImageCropToolbarBottomHeight = 50.5f;
