@@ -1083,30 +1083,65 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     }
     frame.size.height = MIN(imageSize.height, frame.size.height);
     
-    NSUInteger r = (frame.size.width / self.aspectRatio.width);
-    NSUInteger w = frame.size.width;
-    NSUInteger aw = self.aspectRatio.width;
-    // 减枝
-    w -= w % aw;
-    // 换算
-    NSUInteger h = r * self.aspectRatio.height;
-    // 赋值
-    if (imageSize.height >= h) {
-        frame.size.width = w;
-        frame.size.height = h;
-    }
-    else {
-        r = (frame.size.height / self.aspectRatio.height);
-        NSUInteger h = frame.size.height;
-        NSUInteger ah = self.aspectRatio.height;
-        h -= h % ah;
-        NSUInteger w = r * self.aspectRatio.width;
-        if (imageSize.width >= w) {
+    // 当比例不“严格”准准时才做处理
+    if (frame.size.width * self.aspectRatio.width != frame.size.height * self.aspectRatio.height) {
+        NSUInteger w = frame.size.width;
+        NSUInteger aw = self.aspectRatio.width;
+        // 减枝
+        w -= w % aw;
+        // 换算
+        NSUInteger r = (w / self.aspectRatio.width);
+        NSUInteger h = r * self.aspectRatio.height;
+        // 赋值
+        if (imageSize.height >= h) {
             frame.size.width = w;
             frame.size.height = h;
         }
+        else {
+            NSUInteger h = frame.size.height;
+            NSUInteger ah = self.aspectRatio.height;
+            h -= h % ah;
+            r = (h / self.aspectRatio.height);
+            NSUInteger w = r * self.aspectRatio.width;
+            if (imageSize.width >= w) {
+                frame.size.width = w;
+                frame.size.height = h;
+            }
+        }
     }
+    
+    frame = [self p_makeFrame4AspectRatio:frame imageSize:imageSize];
+    
+    return frame;
+}
 
+- (CGRect)p_makeFrame4AspectRatio:(CGRect)frame imageSize:(CGSize)imageSize {
+    // 当比例不“严格”准准时才做处理
+    if (frame.size.width * self.aspectRatio.height != frame.size.height * self.aspectRatio.width) {
+        NSUInteger w = frame.size.width;
+        NSUInteger aw = self.aspectRatio.width;
+        // 减枝
+        w -= w % aw;
+        // 换算
+        NSUInteger r = (w / self.aspectRatio.width);
+        NSUInteger h = r * self.aspectRatio.height;
+        // 赋值
+        if (imageSize.height >= h) {
+            frame.size.width = w;
+            frame.size.height = h;
+        }
+        else {
+            NSUInteger h = frame.size.height;
+            NSUInteger ah = self.aspectRatio.height;
+            h -= h % ah;
+            r = (h / self.aspectRatio.height);
+            NSUInteger w = r * self.aspectRatio.width;
+            if (imageSize.width >= w) {
+                frame.size.width = w;
+                frame.size.height = h;
+            }
+        }
+    }
     return frame;
 }
 

@@ -36,6 +36,7 @@
 #define TOCropRotate QHCropRotate
 
 // TOCropViewConstants
+#define TOCropViewConstants QHCropViewConstants
 #define TOCropViewCroppingStyle                         QHCropViewCroppingStyle
 #define TOCropViewCroppingStyleDefault                  QHCropViewCroppingStyleDefault
 #define TOCropViewCroppingStyleCircular                 QHCropViewCroppingStyleCircular
